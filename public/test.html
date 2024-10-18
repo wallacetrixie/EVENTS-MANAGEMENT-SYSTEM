@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Details</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        form { margin: 20px; }
+        input { padding: 10px; margin: 5px; }
+        button { padding: 10px; background-color: blue; color: white; }
+    </style>
+</head>
+<body>
+
+<h2>Enter Your Details</h2>
+<form id="userForm">
+    <input type="text" id="name" placeholder="Enter your name" required />
+    <input type="number" id="age" placeholder="Enter your age" required />
+    <button type="submit">Submit</button>
+</form>
+
+<h2>User Information</h2>
+<div id="userData"></div>
+
+<script>
+    document.getElementById('userForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const name = document.getElementById('name').value;
+        const age = document.getElementById('age').value;
+
+        // POST request to add user
+        await fetch('http://localhost:3000/add-user', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ name, age })
+        });
+
+        // Fetch and display users
+        fetchUsers();
+    });
+
+async function fetchUsers() {
+        const response = await fetch('http://localhost:3000/users');
+        const users = await response.json();
+        const userDataDiv = document.getElementById('userData');
+        userDataDiv.innerHTML = users.map(user => `
+            <p>
+                ${user.name} (Age: ${user.age})
+                <button onclick="editUser(${user.id}, '${user.name}', ${user.age})">Edit Info</button>
+                <button onclick="deleteUser(${user.id})">Delete</button>
+            </p>
+        `).join('');
+    }
+
+    // Function to delete a user
+    async function deleteUser(id) {
+        const response = await fetch(`http://localhost:3000/delete-user/${id}`, {
+            method: 'DELETE'
+        });
+        if (response.ok) {
+            alert('User deleted');
+            fetchUsers(); // Refresh the list after deletion
+        } else {
+            alert('Error deleting user');
+        }
+    }
+
+    // Function to edit user
+    function editUser(id, name, age) {
+        const nameInput = prompt('Edit Name:', name);
+        const ageInput = prompt('Edit Age:', age);
+        if (nameInput && ageInput) {
+            updateUser(id, nameInput, ageInput);
+        }
+    }
+
+    // Function to update a user
+    async function updateUser(id, name, age) {
+        const response = await fetch(`http://localhost:3000/update-user/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ name, age })
+        });
+        if (response.ok) {
+            alert('User updated');
+            fetchUsers(); // Refresh the list after update
+        } else {
+            alert('Error updating user');
+        }
+    }
+
+    // Initial fetch on page load
+    fetchUsers();
+</script>
+
+</body>
+</html>

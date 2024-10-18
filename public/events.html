@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>P-Lan Event Management System</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+    <!-- FontAwesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="styles/events.css" />
+</head>
+<body>
+    <!-- Welcome Section -->
+    <div class="welcome-section">
+       <h1>Welcome, <span id="user-name"></span>!</h1>
+        <p>Start planning your event with ease.</p>
+        <button class="create-event-btn" onclick="openEventForm()">Create Event</button>
+        <div class="more-actions"></div>
+            <i class="fas fa-angle-down more-actions-icon" onclick="toggleDropdown()"></i>
+            <div class="dropdown-content">
+            
+                <a href="#" onclick="sendInvitation(eventId)">Send Invitation</a>
+                <a href="#" onclick="setReminders(eventId)">Reminders</a>
+                <a href="#" onclick="uploadImages(eventId)">Upload Event Images</a>
+            </div>
+        </div>
+    </div>
+ 
+
+
+
+    <!-- Event Creation Form Popup -->
+    <div id="event-form-popup" class="event-form-popup-overlay">
+        <div class="event-form-content">
+            <span class="close-popup" onclick="closeEventForm()">&times;</span>
+
+            <h2>Create Your Event</h2>
+            <form action="/submit-event-details" method="POST" id="event-form">
+
+                <!-- Form Section 1: Basic Event Details -->
+                <div id="form-section-1" class="form-section active">
+                    <label for="event-name">Event Name:</label>
+                    <input type="text" id="event-name" name="eventName" required>
+
+                    <label for="event-date">Event Date:</label>
+                    <input type="date" id="event-date" name="date" required>
+
+                    <label for="event-time">Event Time:</label>
+                    <input type="time" id="event-time" name="time" required>
+
+                    <label for="event-location">Location:</label>
+                    <input type="text" id="event-location" name="location" required>
+
+                    <div class="form-navigation">
+                        <button type="button" class="next-btn" onclick="nextFormSection()">Next</button>
+                    </div>
+                </div>
+
+                <!-- Form Section 2: Additional Event Details -->
+                <div id="form-section-2" class="form-section">
+                  
+
+                    <label for="event-budget">Budget (Ksh):</label>
+                    <input type="number" id="event-budget" name="budget" required>
+
+                    <label for="guest-count">Number of Guests:</label>
+                    <input type="number" id="guest-count" name="number" required>
+
+                    <label for="additional-notes">Additional Notes:</label>
+                    <textarea id="additional-notes" name="additionalNotes"></textarea>
+
+                    <div class="form-navigation">
+                        <button type="button" class="back-btn" onclick="prevFormSection()">Back</button>
+                        <button type="submit" class="submit-btn">Submit</button>
+                    </div>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+     <!-- Modify Event Popup -->
+    <div id="modify-event-popup">
+        <i class="fas fa-times close-icon" onclick="closePopup('modify-event-popup')"></i>
+        <h2>Modify Event</h2>
+        <form id="modify-event-form">
+            <input type="hidden" id="event-id" />
+            <label for="modify-event-name">Event Name:</label>
+            <input type="text" id="modify-name" required />
+
+            <label for="modify-date">Date:</label>
+            <input type="date" id="modify-date" required />
+
+            <label for="modify-time">Time:</label>
+            <input type="time" id="modify-time" required />
+
+            <label for="modify-location">Location:</label>
+            <input type="text" id="modify-location" required />
+
+            <label for="modify-guests">Number of guests</label>
+            <input type="number" id="modify-number" required />
+
+            <label for="modify-budget">Budget:</label>
+            <input type="number" id="modify-budget" required />
+
+            <button type="submit" onclick="saveChanges()">Save Changes</button>
+            <button type="button" onclick="closePopup('modify-event-popup')">Cancel</button>
+        </form>
+    </div>
+
+
+    <!-- Reminder Popup -->
+<div id="reminder-popup" class="popup">
+    <div class="popup-content">
+        <h2>Set Reminder</h2>
+        <form action="/set-reminder" method="POST" id="set-reminder-form">
+    
+
+    <label for="reminder-method">Reminder Method:</label>
+    <select id="reminder-method" required name="reminderMethod">
+        <option value="email">Email</option>
+        <option value="sms">SMS</option>
+        <option value="push">Push Notification</option>
+    </select>
+
+    <label for="reminder-time">Remind me:</label>
+    <select id="reminder-time" required name="reminderTime">
+        <option value="60">1 hour before</option>
+        <option value="1440">1 day before</option>
+        <option value="10080">1 week before</option>
+    </select>
+
+    <button type="submit">Save Reminder</button>
+    <button type="button" onclick="closePopup()">Cancel</button>
+</form>
+
+      
+    </div>
+</div>
+<div id="countdown"></div>
+
+
+    <div id="events-container" class="events-container"></div>
+        <!-- Event cards will be injected here -->
+    </div>
+
+    <script src="scripts/events.js"></script>
+</body>
+</html>

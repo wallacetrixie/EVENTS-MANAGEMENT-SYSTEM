@@ -1,0 +1,89 @@
+.customer-reviews-section {
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+    color: #333;
+    font-family: Arial, sans-serif;
+}
+
+.customer-reviews-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #0056b3;
+}
+
+.review-slider {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.review-slide {
+    display: none;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-in-out;
+}
+
+.review-slide.active {
+    display: block;
+}
+
+.review-slide p {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+}
+
+.review-slide h4 {
+    font-size: 1.5em;
+    color: #666;
+}
+
+.review-navigation {
+    margin-top: 20px;
+}
+
+.review-navigation .prev-review, 
+.review-navigation .next-review {
+    font-size: 2em;
+    cursor: pointer;
+    margin: 0 10px;
+    color: #0056b3;
+    transition: color 0.3s ease;
+}
+
+.review-navigation .prev-review:hover,
+.review-navigation .next-review:hover {
+    color: #ff6347;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@media (max-width: 768px) {
+    .review-slider {
+        padding: 10px;
+    }
+
+    .customer-reviews-section h2 {
+        font-size: 2em;
+    }
+
+    .review-slide p {
+        font-size: 1em;
+    }
+
+    .review-slide h4 {
+        font-size: 1.3em;
+    }
+
+    .review-navigation .prev-review, 
+    .review-navigation .next-review {
+        font-size: 1.5em;
+    }
+}

@@ -1,0 +1,172 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.input-group {
+    
+    margin-bottom: 15px;
+}
+
+.input-group i {
+
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+}
+
+.input-group input {
+    padding-left: 35px;
+    width: 100%;
+    box-sizing: border-box;
+    height: 40px;
+}
+
+.auth-container {
+    width: 100%;
+    max-width: 700px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-toggle {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.form-toggle button {
+    width: 50%;
+    padding: 10px 0;
+    border: none;
+    background-color: #f4f4f4;
+    color: #666;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.form-toggle button.active {
+    background-color: #1a73e8;
+    color: white;
+}
+
+.auth-form {
+    width: 100%;
+}
+
+.auth-form h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #6b6969;
+    font-weight:bolder;
+}
+
+.auth-form label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.auth-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #1a73e8;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #1669c7;
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+    .auth-container {
+        width:80%;
+    }
+
+    .auth-form h2 {
+        font-size: 1.5rem;
+    }
+
+    .auth-form input, .submit-btn {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .auth-container {
+        padding: 10px;
+    }
+
+    .logo {
+        width: 80px;
+    }
+
+    .form-toggle button {
+        padding: 8px 0;
+    }
+
+    .auth-form input, .submit-btn {
+        padding: 8px;
+    }
+
+    .auth-form h2 {
+        font-size: 1.2rem;
+    }
+
+    .auth-form label {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .auth-container {
+        padding: 5px;
+    }
+
+    .logo {
+        width: 60px;
+    }
+
+    .auth-form h2 {
+        font-size: 1rem;
+    }
+
+    .auth-form input, .submit-btn {
+        font-size: 0.8rem;
+        padding: 7px;
+    }
+
+    .auth-form label {
+        font-size: 0.8rem;
+    }
+}

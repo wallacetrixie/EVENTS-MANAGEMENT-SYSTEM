@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>P-Lan Event Management System</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!-- FontAwesome CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <link rel="stylesheet" href="styles/homepage.css" />
+    <link rel="stylesheet" href="styles/contact.css" />
+    <link rel="stylesheet" href="styles/footer.css" />
+    <link rel="stylesheet" href="styles/reviews.css" />
+    <link rel="stylesheet" href="styles/works.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="header-nav">
+        <div class="logo">
+          <img src="styles/logo.jpg" alt="P-Lan Logo" />
+        </div>
+        <!-- Search Bar -->
+        <div class="search-bar">
+          <input type="text" placeholder="Search for events, vendors..." />
+          <button type="submit"><i class="fas fa-search"></i></button>
+        </div>
+
+        <ul id="menu-items">
+          <li class="menu-item">
+            <a href="#">
+              <i class="fas fa-calendar-alt"></i>
+              <span class="menu-text">My Events</span>
+            </a>
+          </li>
+          <li class="menu-item">
+            <a href="#">
+              <i class="fas fa-user"></i>
+              <span class="menu-text">My Account</span>
+            </a>
+          </li>
+          <li class="menu-item">
+            <a href="#">
+              <i class="fas fa-bell"></i>
+              <span class="notification-counter">0</span>
+              <!-- Notification counter -->
+              <span class="menu-text">Notifications</span>
+            </a>
+          </li>
+        </ul>
+
+        <!-- Hamburger Menu Icon -->
+        <div class="hamburger-icon" onclick="toggleMenu()">
+          <i class="fas fa-bars"></i>
+        </div>
+      </nav>
+
+      <!-- Hamburger Dropdown Menu for small screens -->
+      <div id="hamburger-menu" class="dropdown-hamburger">
+        <ul>
+          <li>
+            <a href="#"><i class="fas fa-calendar-alt"></i> My Events</a>
+          </li>
+          <li>
+            <a href="#"><i class="fas fa-user"></i> My Account</a>
+          </li>
+          <li>
+            <a href="#"><i class="fas fa-bell"></i> Notifications</a>
+          </li>
+          <li>
+            <a href="#"><i class="fas fa-user-circle"></i> Profile</a>
+          </li>
+        </ul>
+      </div>
+    </header>
+    
+    <section class="welcome-section" id="welcome-section">
+      <div class="welcome-text">
+        <h1>Welcome to P-Lan Event Management System</h1>
+        <p id="dynamic-text">Organize, Plan, and Celebrate with Ease</p>
+        <button class="create-event-btn" onclick="Event()" >Create an event</button>
+      </div>
+
+      <!-- New Features Section Inside Welcome Section -->
+      <section class="features-section">
+        <div class="feature">
+          <i class="fas fa-calendar-check"></i>
+          <h3>Event Scheduling</h3>
+          <p>
+            Easily schedule your events and get reminders so you never miss a
+            thing.
+          </p>
+        </div>
+        <div class="feature">
+          <i class="fas fa-users"></i>
+          <h3>Guest Management</h3>
+          <p>
+            Invite and manage your event attendees with personalized digital
+            invitations.
+          </p>
+        </div>
+        <div class="feature">
+          <i class="fas fa-credit-card"></i>
+          <h3>Secure Payments</h3>
+          <p>
+            Book venues and services with secure and flexible payment options.
+          </p>
+        </div>
+        <div class="feature">
+          <i class="fas fa-sync-alt"></i>
+          <h3>Easy Rescheduling</h3>
+          <p>Change event dates and timings with ease to suit your plans.</p>
+        </div>
+      </section>
+    </section>
+
+    
+    <!-- How It Works Section -->
+<div class="how-it-works-section">
+    <h2>How It Works</h2>
+    <div class="how-it-works-container">
+        <!-- Step 1: Sign Up -->
+        <div class="how-it-works-step">
+            <i class="fas fa-user-plus"></i>
+            <h3>Sign Up</h3>
+            <p>Create an account by signing up with your details to start planning your event.</p>
+        </div>
+        <div class="how-it-works-step">
+            <i class="fas fa-calendar-alt"></i>
+            <h3>Step 1: Create Your Event</h3>
+            <p>Start by filling out the basic details of your event, such as the name, date, and location.</p>
+        </div>
+        <div class="how-it-works-step">
+            <i class="fas fa-cogs"></i>
+            <h3>Step 2: Customize Your Event</h3>
+            <p>Choose the type of event, set your budget, and specify the number of guests.</p>
+        </div>
+        <div class="how-it-works-step">
+            <i class="fas fa-check-circle"></i>
+            <h3>Step 3: Confirm and Manage</h3>
+            <p>Review your event details, confirm, and manage any last-minute changes.</p>
+        </div>
+    </div>
+</div>
+
+<section class="room-booking">
+  <div class="section-header">
+    <h2>Reserve Your Event Space</h2>
+    <p>
+      Explore our exclusive rooms and book the perfect space for your event.
+    </p>
+  </div>
+
+  <!-- Room Section -->
+  <div class="room-gallery">
+    <!-- First 3 Rooms (Visible by Default) -->
+    <div class="room">
+      <img src="assets/wed1.jpeg" alt="Room 1" />
+      <div class="room-details">
+        <h3>Grand Ballroom</h3>
+        <p>Price: Ksh 100,000</p>
+        <a href="#" class="book-room-btn" onclick="openPopup('Grand Ballroom', 'assets/wed1.jpeg', 'Ksh 100,000', 'Nairobi, Kenya', ['assets/wed1.jpeg', 'assets/wed2.jpeg', 'assets/wed3.jpeg'])">Book Now</a>
+      </div>
+    </div>
+
+    <div class="room">
+      <img src="assets/room2.jpeg" alt="Room 2" />
+      <div class="room-details">
+        <h3>Royal Hall</h3>
+        <p>Price: Ksh 80,000</p>
+        <a href="#" class="book-room-btn" onclick="openPopup('Royal Hall', 'assets/room2.jpeg', 'Ksh 80,000', 'Nakuru, Kenya', ['assets/r2.jpeg', 'assets/r3.jpeg', 'assets/r4.jpeg'])">Book Now</a>
+      </div>
+    </div>
+
+    <div class="room">
+      <img src="assets/room3.jpeg" alt="Room 3" />
+      <div class="room-details">
+        <h3>Elegance Suite</h3>
+        <p>Price: Ksh 120,000</p>
+        <a href="#" class="book-room-btn" onclick="openPopup('Elegance Suite', 'assets/room3.jpeg', 'Ksh 120,000', 'Diani, Kenya', ['assets/e1.jpeg', 'assets/e2.jpeg', 'assets/e3.jpeg'])">Book Now</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hidden Rooms (Initially Hidden) -->
+  <div class="hidden-rooms">
+    <!-- ROOM 4 -->
+    <div class="room">
+      <img src="assets/room4.jpeg" alt="Room 4" />
+      <div class="room-details">
+        <h3>Coastal Breeze Hall</h3>
+        <p>Price: Ksh 70,000</p>
+        <a href="#" class="book-room-btn" onclick="openPopup('Coastal Breeze Hall', 'assets/room4.jpeg', 'Ksh 70,000', 'Watamu, Kenya', ['assets/room4.jpeg', 'assets/c2.jpeg', 'assets/c3.jpeg'])">Book Now</a>
+      </div>
+    </div>
+
+    <!-- ROOM 5 -->
+    <div class="room">
+      <img src="assets/room5.jpeg" alt="Room 5" />
+      <div class="room-details">
+        <h3>Highland Retreat</h3>
+        <p>Price: Ksh 90,000</p>
+        <a href="#" class="book-room-btn" onclick="openPopup('Highland Retreat', 'assets/room5.jpeg', 'Ksh 90,000', 'Naivasha, Kenya', ['assets/room5.jpeg', 'assets/h1.jpeg', 'assets/h2.jpeg'])">Book Now</a>
+      </div>
+    </div>
+
+    <!-- ROOM 6 -->
+    <div class="room">
+      <img src="assets/room6.jpeg" alt="Room 6" />
+      <div class="room-details">
+        <h3>Safari Lodge</h3>
+        <p>Price: Ksh 110,000</p>
+        <a href="#" class="book-room-btn" onclick="openPopup('Safari Lodge', 'assets/room6.jpeg', 'Ksh 110,000', 'Maasai Mara, Kenya', ['assets/room6.jpeg', 'assets/s1.jpeg', 'assets/s2.jpeg'])">Book Now</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Single View More/Less Button -->
+  
+  <button class="view-more-btn" onclick="toggleRooms()">View less</button>
+  
+  <button class="view-more-btn" onclick="toggleRooms()">View More</button>
+</section>
+
+
+
+
+      <!-- Room Booking Popup (Hidden by Default) -->
+      <div id="room-popup" class="room-popup-overlay">
+        <div class="room-popup-content">
+          <span class="close-popup" onclick="closePopup()">&times;</span>
+
+          <!-- Main Room Image -->
+          <div class="popup-main-image">
+            <img id="popup-image" src="" alt="Room Image" />
+          </div>
+
+          <!-- Room Details -->
+          <div class="popup-room-details">
+            <h2 id="popup-title">Room Title</h2>
+            <p id="popup-location">Location:</p>
+            <p id="popup-price">Price:</p>
+          </div>
+          <!-- Image Slider for Sub Images -->
+          <div id="popup-sub-images" class="popup-sub-images">
+            <!-- Sub-images will be dynamically added here -->
+          </div>
+
+          <!-- Booking Section -->
+          <div class="popup-booking-form">
+            <h3>Book This Room</h3>
+            <form>
+              <label for="name">Your Name:</label>
+              <input type="text" id="name" required />
+
+              <label for="email">Your Email:</label>
+              <input type="email" id="email" required />
+
+              <label for="date">Select Date:</label>
+              <input type="date" id="date" required />
+
+              <button type="submit">Confirm Booking</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT US SECTION -->
+     <!-- Contact Us Section -->
+<div class="contact-us-section">
+    <h2>Contact Us</h2>
+    
+    <div class="contact-container">
+        <!-- Contact Form -->
+        <div class="contact-form">
+            <h3>Get in Touch</h3>
+            <form>
+                <div class="form-group">
+                    <label for="name"><i class="fas fa-user"></i> Your Name:</label>
+                    <input type="text" id="name" placeholder="Enter your name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email"><i class="fas fa-envelope"></i> Your Email:</label>
+                    <input type="email" id="email" placeholder="Enter your email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="subject"><i class="fas fa-tag"></i> Subject:</label>
+                    <input type="text" id="subject" placeholder="Enter subject" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="message"><i class="fas fa-comment"></i> Message:</label>
+                    <textarea id="message" rows="5" placeholder="Enter your message" required></textarea>
+                </div>
+
+                <button type="submit"><i class="fas fa-paper-plane"></i> Send Message</button>
+            </form>
+        </div>
+
+        <!-- Google Maps -->
+        <div class="google-maps">
+            <h3>Find Us Here</h3>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127942.32747848313!2d36.7073074415073!3d-1.286389349762492!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f17398e6d6b2d%3A0x5ff29db84943bb5e!2sNairobi%2C%20Kenya!5e0!3m2!1sen!2s!4v1632525979723!5m2!1sen!2s" 
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Customer Reviews Section -->
+<div class="customer-reviews-section">
+    <h2>What Our Clients Say</h2>
+    <div class="review-slider">
+        <div class="review-slide active">
+            <p>"The booking process was seamless, and the event was a success! Highly recommend this service!"</p>
+            <h4>Jane Doe - Nairobi</h4>
+        </div>
+        <div class="review-slide">
+            <p>"Excellent venue options and outstanding customer service. Our wedding was unforgettable."</p>
+            <h4>John Smith - Nakuru</h4>
+        </div>
+        <div class="review-slide">
+            <p>"A professional team that made our event planning stress-free and enjoyable. Great experience!"</p>
+            <h4>Mary Wangari - Diani</h4>
+        </div>
+        <div class="review-slide">
+            <p>"Top-notch facilities and easy booking. Our corporate event went smoothly thanks to this platform."</p>
+            <h4>Peter Kiplagat - Watamu</h4>
+        </div>
+        <div class="review-slide">
+            <p>"Affordable, reliable, and beautiful venues. We had the perfect graduation party here!"</p>
+            <h4>Alice Mutua - Mombasa</h4>
+        </div>
+    </div>
+    <div class="review-navigation">
+        <span class="prev-review">&lt;</span>
+        <span class="next-review">&gt;</span>
+    </div>
+</div>
+<!-- Footer Section -->
+<footer class="footer-section">
+    <div class="footer-container">
+        <!-- About Us -->
+        <div class="footer-about">
+            <h4>About Us</h4>
+            <p>We are committed to providing top-notch event management services across Kenya, ensuring that every occasion is memorable and stress-free. From weddings to corporate events, we offer premium venues and exceptional service.</p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-links">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#rooms">Rooms & Venues</a></li>
+                <li><a href="#reviews">Customer Reviews</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="footer-contact">
+            <h4>Contact Us</h4>
+            <p><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</p>
+            <p><i class="fas fa-phone"></i> +254 705103864</p>
+            <p><i class="fas fa-envelope"></i>wallacewambulwa@gmail.com</p>
+        </div>
+
+        <!-- Follow Us -->
+        <div class="footer-social">
+            <h4>Follow Us</h4>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2024 P-lan Event Management. All Rights Reserved.</p>
+    </div>
+</footer>
+
+    <script src="scripts/homepage.js"></script>
+    <script src="scripts/review.js"></script>
+    <script src="scripts/works.js"></script>
+    <script src="scripts/rooms.js"></script>
+  </body>
+</html>
